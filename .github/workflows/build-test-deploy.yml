@@ -39,7 +39,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
       - name: Run pytest
-        run: pytest --cov --junit-xml=test-results/junit.xml --splits 4 --group ${{ matrix.group }}
+        run: pytest --cov --junit-xml=test-results --splits 4 --group ${{ matrix.group }}
       - name: Upload coverage
         uses: actions/upload-artifact@v2
         with:
@@ -48,8 +48,8 @@ jobs:
       - name: Upload Test Results
         uses: actions/upload-artifact@v2
         with:
-          name: junit.xml
-          path: .test-results    
+          name: junit${{ matrix.group }}
+          path: test-results    
 
   linting:
     runs-on: ubuntu-latest
