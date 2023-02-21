@@ -2,6 +2,7 @@
 /shelf/
 /.idea/
 .env
+/__pycache__/
 
 #Django
 db.sqlite3
