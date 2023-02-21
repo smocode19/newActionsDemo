@@ -1,0 +1,10 @@
+{
+    "polls/polls_tests.py::QuestionIndexViewTests::test_future_question": 0.01713158405618742,
+    "polls/polls_tests.py::QuestionIndexViewTests::test_future_question_and_past_question": 0.0021442919969558716,
+    "polls/polls_tests.py::QuestionIndexViewTests::test_no_questions": 0.0015231669531203806,
+    "polls/polls_tests.py::QuestionIndexViewTests::test_past_question": 0.0018719170475378633,
+    "polls/polls_tests.py::QuestionIndexViewTests::test_two_past_questions": 0.0026609990745782852,
+    "polls/polls_tests.py::QuestionModelTests::test_was_published_recently_with_future_question": 0.1273975420044735,
+    "polls/polls_tests.py::QuestionModelTests::test_was_published_recently_with_old_question": 0.0008240009774453938,
+    "polls/polls_tests.py::QuestionModelTests::test_was_published_recently_with_recent_question": 0.0010485000093467534
+}
