@@ -96,7 +96,7 @@ jobs:
             push: true
             # build-args: |
             #   version=${{ steps.tag.outputs.tag }}
-            tags: ${{ secrets.ACR_ENDPOINT }}/${{ env.IMAGE_NAME }}:${{ core.exportVariable.VERSION }}     
+            tags: ${{ secrets.ACR_ENDPOINT }}/${{ env.IMAGE_NAME }}:${{ env.VERSION }}     
 
   # lint:
   #   runs-on: ubuntu-latest
