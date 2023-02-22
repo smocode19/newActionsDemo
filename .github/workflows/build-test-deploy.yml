@@ -78,7 +78,7 @@ jobs:
         - uses: actions/checkout@v2
         - name: Setup Build Environment Variables
           run: |-
-            echo "export VERSION=$(cat VERSION)" >> $GITHUB_ENV
+            echo "VERSION=$(cat VERSION)" >> $GITHUB_ENV
             source $GITHUB_ENV
           shell: bash
         # - name: Get tag
