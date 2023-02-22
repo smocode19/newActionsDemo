@@ -37,7 +37,7 @@ commands:
       - run:
           name: Setup Build Environment Variables
           command: |
-            echo "export VERSION=$(cat VERSION)" >> $BASH_ENV
+            echo "export VERSION=$(cat VERSION)" >> "$BASH_ENV"
             source $BASH_ENV
 
 jobs:
