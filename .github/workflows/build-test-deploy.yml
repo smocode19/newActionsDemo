@@ -78,8 +78,8 @@ jobs:
         - uses: actions/checkout@v2
         - name: Setup Build Environment Variables
           run: |-
-            echo "export VERSION=$(cat VERSION)" >> $BASH_ENV
-            source $BASH_ENV
+            echo "export VERSION=$(cat VERSION)" >> $GITHUB_ENV
+            source $GITHUB_ENV
           shell: bash
         # - name: Get tag
         #   id: tag
@@ -96,7 +96,7 @@ jobs:
             push: true
             # build-args: |
             #   version=${{ steps.tag.outputs.tag }}
-            tags: ${{ secrets.ACR_ENDPOINT }}/${{ env.IMAGE_NAME }}:${{ env.VERSION }}     
+            tags: ${{ secrets.ACR_ENDPOINT }}/${{ env.IMAGE_NAME }}:${{ core.exportVariable.VERSION }}     
 
   # lint:
   #   runs-on: ubuntu-latest
