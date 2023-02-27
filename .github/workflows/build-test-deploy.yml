@@ -39,7 +39,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
       - name: Run pytest
-        run: pytest --cov --junit-xml=test-results --splitting-algorithm=least_duration --splits 4 --group ${{ matrix.group }}
+        run: pytest --cov --junit-xml=test-results --splitting-algorithm=least_duration --splits 4 --group ${{ matrix.group }} #run pytest with coverage and junit xml output split into 4 groups
       - name: Upload coverage
         uses: actions/upload-artifact@v2
         with:
@@ -70,15 +70,21 @@ jobs:
         run: pylint polls --exit-zero         
 
   build-and-push-image:
-      if: github.ref == 'refs/heads/main' #only run on main branch
+      # if: github.ref == 'refs/heads/main' #only run on main branch
       runs-on: ubuntu-latest
       needs:
         - run-parallel-tests
+        - linting
       steps:
         - uses: actions/checkout@v2
-        - name: Get tag
-          id: tag
-          uses: dawidd6/action-get-tag@v1
+        - name: Setup Build Environment Variables
+          run: |-
+            echo "VERSION=$(cat VERSION)" >> $GITHUB_ENV
+            source $GITHUB_ENV
+          shell: bash
+        # - name: Get tag
+        #   id: tag
+        #   uses: dawidd6/action-get-tag@v1
         - name: Log into registry
           uses: docker/login-action@v1
           with:
@@ -89,9 +95,9 @@ jobs:
           uses: docker/build-push-action@v2
           with:
             push: true
-            build-args: |
-              version=${{ steps.tag.outputs.tag }}
-            tags: ${{ secrets.ACR_ENDPOINT }}/${{ env.IMAGE_NAME }}:${{ steps.tag.outputs.tag }}     
+            # build-args: |
+            #   version=${{ steps.tag.outputs.tag }}
+            tags: ${{ secrets.ACR_ENDPOINT }}/${{ env.IMAGE_NAME }}:${{ env.VERSION }}     
 
   # lint:
   #   runs-on: ubuntu-latest
