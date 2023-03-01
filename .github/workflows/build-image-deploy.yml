@@ -16,9 +16,7 @@ env:
 jobs:
 
   call-build-and-test:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: ./.github/workflows/build-and-test.yml 
+    uses: ./.github/workflows/build-and-test.yml 
 
   build-and-push-image:
       # if: github.ref == 'refs/heads/main' #only run on main branch
