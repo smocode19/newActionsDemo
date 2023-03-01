@@ -4,24 +4,24 @@ metadata:
   name: alec-buchanan-demo-v${VERSION}
   namespace: default
   labels:
-    app: circleci-gke
+    app: gh-aks
     version: "${VERSION}"
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: circleci-gke
+      app: gh-aks
       version: "${VERSION}"
   template:
     metadata:
       labels:
-        app: circleci-gke
+        app: gh-aks
         version: "${VERSION}"
     spec:
       containers:
-      - name: circleci-gke
+      - name: gh-aks
         imagePullPolicy: Always
-        image: "us.gcr.io/django-demo-cci/alec-buchanan-demo:${VERSION}"
+        image: "alecbuchanan.azurecr.io/alec-buchanan-demo:${VERSION}"
         env:
           - name: SECRET_KEY
             value: dummy
@@ -42,7 +42,7 @@ metadata:
 spec:
   type: ClusterIP
   selector:
-    app: circleci-gke
+    app: gh-aks
   ports:
   - protocol: TCP
     port: 80
@@ -56,7 +56,7 @@ metadata:
 spec:
   type: NodePort
   selector:
-    app: circleci-gke
+    app: gh-aks
   ports:
   - protocol: TCP
     port: 80
