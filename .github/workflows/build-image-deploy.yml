@@ -18,7 +18,7 @@ jobs:
   call-build-and-test:
     runs-on: ubuntu-latest
     steps:
-      - uses: alecbuchanan/cicd_demo/build-and-test@demo_rework2 
+      - uses: ./.github/workflows/build-and-test.yml 
 
   build-and-push-image:
       # if: github.ref == 'refs/heads/main' #only run on main branch
