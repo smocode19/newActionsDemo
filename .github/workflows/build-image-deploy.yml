@@ -24,6 +24,15 @@ on:
           - 'latest'
           - 'dev'
           - 'qa'
+          - 'prod'
+      environment:
+        description: 'Environment'
+        required: false
+        default: 'dev'
+        type: choice
+        options:
+          - 'dev'
+          - 'qa'
           - 'prod'    
     
 defaults:
