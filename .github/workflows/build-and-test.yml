@@ -10,7 +10,7 @@ defaults:
 
 env:
   SECRET_KEY: dummy
-  # total-runners: 5
+  # total-runners: 4
   IMAGE_NAME: alec-buchanan-demo
 
 jobs:
