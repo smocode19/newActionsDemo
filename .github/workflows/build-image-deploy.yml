@@ -25,6 +25,15 @@ on:
           - 'dev'
           - 'qa'
           - 'prod'
+      # environment:
+      #   description: 'Environment'
+      #   required: false
+      #   default: 'dev'
+      #   type: choice
+      #   options:
+      #     - 'dev'
+      #     - 'qa'
+      #     - 'prod'
       environment:
         description: 'Environment'
         required: false
@@ -34,6 +43,7 @@ on:
           - 'dev'
           - 'qa'
           - 'prod'    
+
     
 defaults:
   run:
