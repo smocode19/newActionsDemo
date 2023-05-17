@@ -1,0 +1,13 @@
+{
+    "image":"mcr.microsoft.com/devcontainers/universal:2",
+
+    "customizations": {
+        "codespaces": {
+            "repositories": {
+                "alecbuchanan/hello-gha":{
+                    "permissions": "write-all"
+                }
+            }
+        }
+    }
+}
