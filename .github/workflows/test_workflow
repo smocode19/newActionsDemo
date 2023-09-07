@@ -2,3 +2,9 @@ name: test workflow
 
 on:
   workflow_dispatch:
+  push:
+
+jobs:
+  checkout:
+    steps:
+      - uses: actions/checkout@v2
